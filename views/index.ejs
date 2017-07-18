@@ -40,13 +40,15 @@
                 <div class="row">
                     <ul>
                         <li v-for="tag in listedTags">
-                            <a href='#'>{{ tag }}</a>
+                            <a 
+                                href='#'
+                                @click="selectedTag=tag">#{{ tag }}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="row">
                     <div
-                        v-for="item in collection"
+                        v-for="item in selectedCollection"
                         class="col-md-4 item" 
                             >
                         <img v-bind:src="item.image" style="height:400px;width:400px;" />
@@ -62,8 +64,6 @@
             </div>
         </section>
              
-               
-       
         <!-- Jquery first, then JavaScript -->
         <script src="js/jquery-3.1.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

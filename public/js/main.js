@@ -67,7 +67,8 @@ new Vue({
                 hashtags: ['happy']
             }
             
-            ]
+        ],
+        selectedTag: 'happy'  
     },
     computed: {
         listedTags: function(){
@@ -98,6 +99,30 @@ new Vue({
             }
             
             return listedTags;
+        },
+        selectedCollection: function(){
+            var selectedCollection = [],
+                wasSelected         = false; 
+            
+            if(this.selectedTag === ''){
+                return this.collection;
+            } else {
+                for(var i = 0; i < this.collection.length; i++){
+                    for(var t = 0; t < this.collection[i].hashtags.length; t++){
+                       if(this.selectedTag === this.collection[i].hashtags[t]){
+                           selectedCollection.push(this.collection[i]);
+                           wasSelected = true;
+                       }
+                       
+                       if(wasSelected){
+                           wasSelected = false;
+                           break;
+                       }
+                    }
+                }
+                
+                return selectedCollection;
+            }
         }
     }
     
