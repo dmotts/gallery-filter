@@ -13,6 +13,7 @@
         
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
         <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="jumbotron">
-                          <h1>Gallery Filter</h1>
+                          <h1>Gallery Hashtag Filter</h1>
                         </div>
                     </div>
                 </div>
@@ -37,11 +38,25 @@
         <section id="vapp">
             <div class="container">
                 <div class="row">
+                    <ul>
+                        <li v-for="tag in listedTags">
+                            <a href='#'>{{ tag }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
                     <div
-                        v-for="image in images"
-                        class="col-md-4" 
+                        v-for="item in collection"
+                        class="col-md-4 item" 
                             >
-                        <img v-bind:src="image" style="height:400px;width:400px;" />
+                        <img v-bind:src="item.image" style="height:400px;width:400px;" />
+                        <div class="itemTags">
+                            <ul>
+                                <li v-for="tag in item.hashtags">
+                                    #{{ tag }}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
