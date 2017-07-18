@@ -1,5 +1,6 @@
 .item {
     position: relative;
+    padding: 0;
     overflow: hidden;
 }
 
@@ -13,7 +14,6 @@
     width: 100%;
     opacity: 0.5;
 }
-
 
 
 

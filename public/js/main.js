@@ -68,7 +68,7 @@ new Vue({
             }
             
         ],
-        selectedTag: 'happy'  
+        selectedTag: ''  
     },
     computed: {
         listedTags: function(){

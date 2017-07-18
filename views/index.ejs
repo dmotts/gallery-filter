@@ -39,6 +39,7 @@
             <div class="container">
                 <div class="row">
                     <ul>
+                        <li><a href="#" @click="selectedTag=''">Show All Images</a></li>
                         <li v-for="tag in listedTags">
                             <a 
                                 href='#'
@@ -47,19 +48,24 @@
                     </ul>
                 </div>
                 <div class="row">
-                    <div
-                        v-for="item in selectedCollection"
-                        class="col-md-4 item" 
-                            >
-                        <img v-bind:src="item.image" style="height:400px;width:400px;" />
-                        <div class="itemTags">
-                            <ul>
-                                <li v-for="tag in item.hashtags">
-                                    #{{ tag }}
-                                </li>
-                            </ul>
+                    <transition-group
+                            name="list"
+                        >
+                        <div
+                            v-for="(item, index) in selectedCollection"
+                            v-bind:key="index"
+                            class="col-md-4 item" 
+                                >
+                            <img v-bind:src="item.image" style="height:400px;width:400px;" />
+                            <div class="itemTags">
+                                <div>
+                                    <span v-for="tag in item.hashtags">
+                                        #{{ tag }}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </transition-group>
                 </div>
             </div>
         </section>
