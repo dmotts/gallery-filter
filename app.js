@@ -18,5 +18,5 @@ app.get('*', function(req, res){
 });
 
 app.listen(8084, function(){
-    console.log('Gallery Filter server started!');
+    console.log('Server started!');
 });
